@@ -4,13 +4,65 @@
 }
 
 #leftframe {
-  background: blue;
   height: 600px;
   width: 585px;
+  text-align: center;
 }
 
 #rightframe {
-  background: green;
   height: 600px;
   width: 585px;
+  text-align: center;
+}
+
+#p1strength, #p2strength {
+  background: rgba(0, 106, 255, 0.53);
+  height: 200px;
+  width: 585px;
+}
+
+#p1objective, #p2objective {
+  background: rgba(0, 106, 255, 0.53);
+  height: 200px;
+  width: 585px;
+}
+
+#p1blobs, #p2blobs {
+  background: rgba(0, 106, 255, 0.53);
+  height: 200px;
+  width: 585px;
+}
+
+button {
+    background: #428BCA;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 20px;
+    height: 100px;
+    width: 100px;
+    line-height: 60px;
+    margin: 5px 5px;
+    text-align: center;
+    border: 0;
+    border-radius: 50px;
+}
+
+#p1displaybox, #p2displaybox {
+  background: white;
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+#colorpellet {
+  position: relative;
+  top: 40px;
+  left: 20px;
+}
+
+#blackpellet {
+  position: relative;
+  left: 900px;
+  top: 160px;
 }
