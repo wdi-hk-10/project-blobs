@@ -76,20 +76,24 @@ button {
 }
 
 #pOneProgressBar, #pTwoProgressBar {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto;
-    border-radius: 50px;
-
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  /*box-shadow: inset 0px 4px 6px #ADABAB;*/
 }
 
 #pOneProgressBar div, #pTwoProgressBar div {
-    height: 100px;
-    line-height: 50px;
-    width: 100px;
+  height: 100%;
+  line-height: 50px;
+  width: 100px;
 }
 
 .progress-bar {
-    -webkit-transition: none !important;
-    transition: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+  /*box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);*/
 }
+

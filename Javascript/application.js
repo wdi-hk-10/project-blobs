@@ -9,8 +9,8 @@ var $playerOne=$("#pOneDisplayBox");
 var $playerTwo=$("#pTwoDisplayBox");
 var playerOneKeys=["q","w","e","r"];
 var playerTwoKeys=["u","i","o","p"];
-var playerOneTime=500;
-var playerTwoTime=500;
+//var playerOneTime=500;
+//var playerTwoTime=500;
 
 function lightColorGenerator(){
   var color=parseInt(Math.random()*3+1);
@@ -148,6 +148,7 @@ function pOneCheckInput(value){
     wordGenerator($playerOne);
     pOneButtonGenerator();
     resetTime($("#pOneProgressBar"));
+    movePlayerOne();
   } else {
     console.log("P1wrong");
   };
@@ -159,6 +160,7 @@ function pTwoCheckInput(value) {
     wordGenerator($playerTwo);
     pTwoButtonGenerator();
     resetTime($("#pTwoProgressBar"));
+    movePlayerTwo();
   } else {
     console.log("P2wrong");
   };
@@ -193,12 +195,12 @@ function pTwoButtonGenerator(){
 function playerProgress($element) {
     //var progressBarWidth = percent * $element.width() / 5;
     //var progressBarWidth = ($element.width() / 5).toString();
-    $element.find('div').animate({ height: "0%" }, 5000);
-}
+  $element.find('div').animate({ height: "0%" }, 5000);
+};
 function resetTime($section){
-    $section.find("div").stop().css({ "height": "100%" });
-    playerProgress($section);
-}
+  $section.find("div").stop().css({ "height": "100%" });
+  playerProgress($section);
+};
 /*
 function reduceTime() {
     playerOneTime = playerOneTime -100;
@@ -219,8 +221,18 @@ function gameOver(){
   console.log("The end");
 }
 
+function movePlayerOne(){
+  var currentSpot=parseInt($("#colorPellet").attr("style").substr(6,2));
+  var newSpot = (currentSpot+8).toString()+"%";
+  $("#colorPellet").animate({"left":newSpot},500);
+}
+function movePlayerTwo(){
+  var currentSpot=parseInt($("#blackPellet").attr("style").substr(7,2));
+  var newSpot = (currentSpot+8).toString()+"%";
+  $("#blackPellet").animate({"right":newSpot},500);
+}
+
 function start(){
-  //startClock();
   playerProgress($("#pOneProgressBar"));
   playerProgress($("#pTwoProgressBar"));
   lightColorGenerator();
