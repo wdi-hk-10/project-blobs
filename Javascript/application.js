@@ -78,7 +78,8 @@ function playerOneInput(){
   $("body").on("keypress", function charInput(e){
     pOneChoice = String.fromCharCode(e.which);
     if (playerOneKeys.indexOf(pOneChoice)>=0){
-      playGame(pOneChoice,pOneCorrectColor);
+      clickButton(pOneChoice);
+      playGame();
     }
   });
 };
@@ -86,20 +87,44 @@ function playerTwoInput(){
   $("body").on("keypress", function charInput(e){
     pTwoChoice = String.fromCharCode(e.which);
     if (playerTwoKeys.indexOf(pTwoChoice)>=0){
-      playGame(pTwoChoice,pTwoCorrectColor);
+      clickButton(pTwoChoice);
+      playGame();
     };
   });
 };
 
-function checkInput(userInput,answer){
-    if (userInput=="q"){
-
-  }
+function clickButton(clicked){
+    if (clicked=="q") {$("#Q").click();}
+    else if (clicked=="w") {$("#W").click();}
+    else if (clicked=="e") {$("#E").click();}
+    else if (clicked=="r") {$("#R").click();}
+    else if (clicked=="u") {$("#U").click();}
+    else if (clicked=="i") {$("#I").click();}
+    else if (clicked=="o") {$("#O").click();}
+    else if (clicked=="p") {$("#P").click();};
 };
 
-function playGame(player,answer){
-  checkInput(pOneChoice,pOneCorrectColor);
+function playGame(){
+  $(".pOneButton").on("click", pOneCheckInput);
+  $(".pTwoButton").on("click", pTwoCheckInput);
 }
+
+function pOneCheckInput(){
+  if ($(this).val()==pOneCorrectColor){
+    console.log("P1correct");
+  } else {
+    console.log("P1wrong");
+  };
+};
+
+function pTwoCheckInput() {
+  if ($(this).val()==pTwoCorrectColor){
+    console.log("P2correct");
+  } else {
+    console.log("P2wrong");
+  };
+};
+
 
 function pOneButtonGenerator(){
   var lightColors=["red", "blue", "green", "orange"];
@@ -108,10 +133,10 @@ function pOneButtonGenerator(){
     var randomizer = lightColors.splice((Math.floor(Math.random() * lightColors.length)),1);
     randomColor.push(randomizer);
   };
-  $("#Q").css({"background":randomColor[0]});
-  $("#W").css({"background":randomColor[1]});
-  $("#E").css({"background":randomColor[2]});
-  $("#R").css({"background":randomColor[3]});
+  $("#Q").css({"background":randomColor[0]}).val(randomColor[0]);
+  $("#W").css({"background":randomColor[1]}).val(randomColor[1]);
+  $("#E").css({"background":randomColor[2]}).val(randomColor[2]);
+  $("#R").css({"background":randomColor[3]}).val(randomColor[3]);
 };
 function pTwoButtonGenerator(){
   var darkColors=["red", "blue", "green", "orange"];
@@ -120,10 +145,10 @@ function pTwoButtonGenerator(){
     var randomizer = darkColors.splice((Math.floor(Math.random() * darkColors.length)),1);
     randomColor.push(randomizer);
   };
-  $("#U").css({"background":randomColor[0]});
-  $("#I").css({"background":randomColor[1]});
-  $("#O").css({"background":randomColor[2]});
-  $("#P").css({"background":randomColor[3]});
+  $("#U").css({"background":randomColor[0]}).val(randomColor[0]);
+  $("#I").css({"background":randomColor[1]}).val(randomColor[1]);
+  $("#O").css({"background":randomColor[2]}).val(randomColor[2]);
+  $("#P").css({"background":randomColor[3]}).val(randomColor[3]);
 };
 
 lightColorGenerator();
@@ -134,4 +159,5 @@ playerOneInput();
 playerTwoInput();
 pOneButtonGenerator();
 pTwoButtonGenerator();
+playGame();
 });
