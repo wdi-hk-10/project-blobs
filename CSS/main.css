@@ -77,20 +77,18 @@ button {
 
 #pOneProgressBar, #pTwoProgressBar {
     width: 500px;
-    height: 22px;
-    border: 1px solid #111;
-    background: #df6e1e;
+    height: 50px;
     margin: 0 auto;
     border-radius: 15px;
 
 }
 #pOneProgressBar div, #pTwoProgressBar div {
     height: 100%;
-    color: #fff;
-    text-align: right;
-    line-height: 22px; /* same as #progressBar height if we want text middle aligned */
-    width: 0;
-    background: #df6e1e;
-    overflow: hidden;
+    line-height: 50px;
+    width: 500px;
+}
 
+.progress-bar {
+    -webkit-transition: none !important;
+    transition: none !important;
 }
