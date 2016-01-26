@@ -3,11 +3,15 @@ $(document).ready(function(){
 var pOneCorrectColor;
 var pTwoCorrectCOlor;
 var playerWord;
+var pOneChoice;
+var pTwoChoice;
 var $playerOne=$("#pOneDisplayBox");
 var $playerTwo=$("#pTwoDisplayBox");
+var playerOneKeys=["q","w","e","r"];
+var playerTwoKeys=["u","i","o","p"];
 
 function lightColorGenerator(){
-  var color=parseInt(Math.random()*5+1);
+  var color=parseInt(Math.random()*3+1);
   if (color==1){
     pOneCorrectColor="blue";
     $playerOne.css({"color":"blue"});
@@ -20,17 +24,17 @@ function lightColorGenerator(){
   } else if (color==4){
     pOneCorrectColor="orange";
     $playerOne.css({"color":"orange"});
-  } else if (color==5){
+  } /*else if (color==5){
     pOneCorrectColor="yellow";
     $playerOne.css({"color":"yellow"});
   } else if (color==6){
     pOneCorrectColor="purple";
     $playerOne.css({"color":"purple"});
-  }
+  }*/
 };
 
 function darkColorGenerator(){
-  var color=parseInt(Math.random()*5+1);
+  var color=parseInt(Math.random()*3+1);
   if (color==1){
     pTwoCorrectColor="blue";
     $playerTwo.css({"color":"blue"});
@@ -43,17 +47,17 @@ function darkColorGenerator(){
   } else if (color==4){
     pTwoCorrectColor="orange";
     $playerTwo.css({"color":"orange"});
-  } else if (color==5){
+  } /*else if (color==5){
     pTwoCorrectColor="yellow";
     $playerTwo.css({"color":"yellow"});
   } else if (color==6){
     pTwoCorrectColor="purple";
     $playerTwo.css({"color":"purple"});
-  }
+  }*/
 };
 
 function wordGenerator($player){
-  var word = parseInt(Math.random()*5+1);
+  var word = parseInt(Math.random()*3+1);
   if (word==1){
     playerWord ="Blue";
   } else if (word==2) {
@@ -62,16 +66,72 @@ function wordGenerator($player){
     playerWord ="Green";
   } else if (word==4) {
     playerWord ="Orange";
-  } else if (word==5) {
-    playerWord ="Yellow";
-  } else if (word==6) {
-    playerWord ="Purple";
-  }
+  } //else if (word==5) {
+    //playerWord ="Yellow";
+  //} else if (word==6) {
+    //playerWord ="Purple";
+  //}
   $player.text(playerWord).css({"font-size":"35px"});
 };
+
+function playerOneInput(){
+  $("body").on("keypress", function charInput(e){
+    pOneChoice = String.fromCharCode(e.which);
+    if (playerOneKeys.indexOf(pOneChoice)>=0){
+      playGame(pOneChoice,pOneCorrectColor);
+    }
+  });
+};
+function playerTwoInput(){
+  $("body").on("keypress", function charInput(e){
+    pTwoChoice = String.fromCharCode(e.which);
+    if (playerTwoKeys.indexOf(pTwoChoice)>=0){
+      playGame(pTwoChoice,pTwoCorrectColor);
+    };
+  });
+};
+
+function checkInput(userInput,answer){
+    if (userInput=="q"){
+
+  }
+};
+
+function playGame(player,answer){
+  checkInput(pOneChoice,pOneCorrectColor);
+}
+
+function pOneButtonGenerator(){
+  var lightColors=["red", "blue", "green", "orange"];
+  var randomColor=[];
+  for (var x=0;x<4;x++){
+    var randomizer = lightColors.splice((Math.floor(Math.random() * lightColors.length)),1);
+    randomColor.push(randomizer);
+  };
+  $("#Q").css({"background":randomColor[0]});
+  $("#W").css({"background":randomColor[1]});
+  $("#E").css({"background":randomColor[2]});
+  $("#R").css({"background":randomColor[3]});
+};
+function pTwoButtonGenerator(){
+  var darkColors=["red", "blue", "green", "orange"];
+  var randomColor=[];
+  for (var x=0;x<4;x++){
+    var randomizer = darkColors.splice((Math.floor(Math.random() * darkColors.length)),1);
+    randomColor.push(randomizer);
+  };
+  $("#U").css({"background":randomColor[0]});
+  $("#I").css({"background":randomColor[1]});
+  $("#O").css({"background":randomColor[2]});
+  $("#P").css({"background":randomColor[3]});
+};
+
 lightColorGenerator();
 darkColorGenerator();
 wordGenerator($playerOne);
 wordGenerator($playerTwo);
-
+playerOneInput();
+playerTwoInput();
+pOneButtonGenerator();
+pTwoButtonGenerator();
 });
