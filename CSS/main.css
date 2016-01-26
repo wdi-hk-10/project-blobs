@@ -1,0 +1,92 @@
+.mainBox {
+  width: 1200px;
+  margin-top: 30px;
+}
+
+.row {
+  margin: 0;
+}
+
+#topFrame {
+  background: red;
+  height: 300px;
+  padding: 0px;
+}
+
+#leftFrame {
+  padding: 0;
+  text-align: center;
+}
+
+#rightFrame {
+  padding: 0;
+  text-align: center;
+}
+
+#pOneStrength, #pTwoStrength {
+  background: rgba(0, 106, 255, 0.53);
+  height: 200px;
+  width: 585px;
+}
+
+#pOneObjective, #pTwoObjective {
+  background: rgba(0, 106, 255, 0.53);
+  height: 200px;
+  width: 585px;
+}
+
+#pOneBlobs, #pTwoBlobs {
+  background: rgba(0, 106, 255, 0.53);
+  height: 200px;
+  width: 585px;
+}
+
+button {
+    background: #428BCA;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 20px;
+    height: 100px;
+    width: 100px;
+    line-height: 60px;
+    margin: 5px 5px;
+    text-align: center;
+    border: 0;
+    border-radius: 50px;
+}
+
+#pOneDisplayBox, #pTwoDisplayBox {
+  background: white;
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+#colorPellet {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+}
+
+#blackPellet {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+}
+
+#pOneProgressBar, #pTwoProgressBar {
+    width: 400px;
+    height: 22px;
+    border: 1px solid #111;
+    background-color: #292929;
+    margin: 0 auto;
+}
+#pOneProgressBar div, #pTwoProgressBar div {
+    height: 100%;
+    color: #fff;
+    text-align: right;
+    line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+    width: 0;
+    background-color: #0099ff;
+}
