@@ -131,6 +131,7 @@ function playerOneGame(){
       }
     }
 }
+
 function playerTwoGame(){
     for (var y=0;y<playerTwoKeys.length;y++){
       if (pTwoChoice==playerTwoKeys[y]){
@@ -140,24 +141,6 @@ function playerTwoGame(){
       }
     }
   }
-/*
-  if (pOneChoice=="q") {
-    $("#Q").click();
-    var temp=$("#Q").val();
-    pOneCheckInput(temp);
-  } else if (pOneChoice=="w") {
-    $("#W").click();
-    var temp=$("#W").val();
-    pOneCheckInput(temp);
-  } else if (pOneChoice=="e") {
-    $("#E").click();
-    var temp=$("#E").val();
-    pOneCheckInput(temp);
-  } else if (pOneChoice=="r") {
-    $("#R").click();
-    var temp=$("#R").val();
-    pOneCheckInput(temp);
-  };}*/
 
 function pOneCheckInput(value){
   if (value==pOneCorrectColor){
@@ -209,10 +192,10 @@ function pTwoButtonGenerator(){
 function playerProgress($element) {
     //var progressBarWidth = percent * $element.width() / 5;
     //var progressBarWidth = ($element.width() / 5).toString();
-    $element.find('div').animate({ width: "0%" }, 5000);
+    $element.find('div').animate({ height: "0%" }, 5000);
 }
 function resetTime($section){
-    $section.find("div").stop().css({ "width": "100%" });
+    $section.find("div").stop().css({ "height": "100%" });
     playerProgress($section);
 }
 /*
