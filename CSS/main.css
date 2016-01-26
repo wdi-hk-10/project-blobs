@@ -84,7 +84,7 @@ button {
 }
 
 #pOneProgressBar div, #pTwoProgressBar div {
-    height: 100%;
+    height: 100px;
     line-height: 50px;
     width: 100px;
 }

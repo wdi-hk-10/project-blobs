@@ -158,6 +158,7 @@ function pTwoCheckInput(value) {
     darkColorGenerator()
     wordGenerator($playerTwo);
     pTwoButtonGenerator();
+    resetTime($("#pTwoProgressBar"));
   } else {
     console.log("P2wrong");
   };
@@ -221,6 +222,7 @@ function gameOver(){
 function start(){
   //startClock();
   playerProgress($("#pOneProgressBar"));
+  playerProgress($("#pTwoProgressBar"));
   lightColorGenerator();
   darkColorGenerator();
   wordGenerator($playerOne);
