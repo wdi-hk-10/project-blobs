@@ -1,3 +1,15 @@
+body{
+  background-image: url("http://www.co-optimus.com/images/upload/image/2011/deBlob2-battle.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+img{
+  max-height: 100%;
+  max-width: 50%;
+  float: right;
+}
+
 .mainBox {
   width: 1200px;
   margin-top: 30px;
@@ -8,7 +20,7 @@
 }
 
 #topFrame {
-  background: red;
+  background: rgba(255, 255, 255, 0.60);
   height: 300px;
   padding: 0px;
 }
