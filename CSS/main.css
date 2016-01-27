@@ -1,9 +1,9 @@
 body{
-  background-image: url("http://www.co-optimus.com/images/upload/image/2011/deBlob2-battle.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url("../Images/MainBackground.png");
+  /*background-position: 500px 0px;*/
   background-position: center;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-repeat: no-repeat;
+  font-family: "Arial";
 }
 img{
   max-height: 100%;
@@ -23,6 +23,34 @@ button {
     text-align: center;
     border: 0;
     border-radius: 50px;
+}
+
+#player1 {
+  background-image: url("../Images/inkygun.png");
+}
+
+#player2 {
+  background-image: url("../Images/deblobred.png");
+}
+
+#startScreen div {
+  position: fixed;
+  top: 50%;
+  margin: 0 auto;
+}
+
+#instructions div {
+  background-image: url("../Images/Instructions.png");
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#playerSlides div {
+  background-image: url("../Images/Player 1.png");
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .newGame {

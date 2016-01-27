@@ -321,15 +321,45 @@ function start(){
   playerTwoInput();
 }
 
+setTimeout(function beginPlayer(){
+  $("#players").addClass("animated bounceInDown").removeClass("hide");
+},500);
+setTimeout(function beginInstructions(){
+  $("#instructionButton").addClass("animated bounceInDown").removeClass("hide");
+},700);
+setTimeout(function beginStart(){
+  $("#startGame").addClass("animated bounceInDown").removeClass("hide");
+},900);
+
 $("#startGame").on("click", function instructions(){
   $("#startScreen").addClass("hide");
-  $("#instructions").removeClass("hide");
+  $("section").removeClass("hide");
+  countDown();
+});
+
+$("#instructionButton").on("click", function instructions(){
+  $("#startScreen").addClass("hide");
+  $("#instructions").addClass("animated slideInRight").removeClass("hide");
+});
+
+$("#players").on("click", function instructions(){
+  $("#startScreen").addClass("hide");
+  $("#playerSlides1").removeClass("hide");
 });
 
 $("#next").on("click", function instructions(){
+  $("#playerSlides1").addClass("hide");
+  $("#playerSlides2").removeClass("hide");
+});
+
+$("#menuOne").on("click", function instructions(){
   $("#instructions").addClass("hide");
-  $("section").removeClass("hide");
-  countDown();
+  $("#startScreen").removeClass("hide");
+});
+
+$("#menuTwo").on("click", function instructions(){
+  $("#playerSlides2").addClass("hide");
+  $("#startScreen").removeClass("hide");
 });
 
 });

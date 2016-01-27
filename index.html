@@ -38,23 +38,33 @@
     <div class="container mainBox">
       <div id="startScreen" class="row">
         <div>
-          <img src="http://66.90.91.26/album_images/11394-De-Blob-2-745x559-ab0ea96d2c47cf56.jpg">
-          <button id="startGame">Instructions</button>
+          <button id="players" class="hide">Players</button>
+          <button id="instructionButton" class="hide">Instructions</button>
+          <button id="startGame" class="hide">Start</button>
         </div>
       </div>
-      <div  id="instructions" class="row hide">
+      <div id="instructions" class="row hide">
         <div>
-          <img src="http://www.gameguyz.com/sites/default/files/pictures_images/03.09.2012/1346641583_6.jpg">
-          <button id="next">Start Game</button>
+          <button id="menuOne">Main Menu</button>
+        </div>
+      </div>
+      <div id="playerSlides1" class="row hide">
+        <div>
+          <button id="next">Player 2</button>
+        </div>
+      </div>
+      <div id="playerSlides2" class="row hide">
+        <div>
+          <button id="menuTwo">Main Menu</button>
         </div>
       </div>
 
       <section class="hide">
         <div class="row col-xs-12" id="topFrame">
-          <button disabled="disabled" id="colorPellet"></button>
-          <button disabled="disabled" id="blackPellet"></button>
-          <img class ="pull-right" src="http://wiimedia.gamespy.com/wii/image/article/897/897725/de-blob-20080808041811452_640w.jpg">
-          <img class ="pull-left" src="http://blogs.theage.com.au/screenplay/deblob1.jpg">
+          <button disabled="disabled" id="colorPellet" class="animated infinite pulse"></button>
+          <button disabled="disabled" id="blackPellet" class="animated infinite pulse"></button>
+          <img id="player1" class ="pull-right" src="../Images/inkygun.png">
+          <img id="player2" class ="pull-left" src="../Images/deblobred.png">
         </div>
 
         <div class="row">
