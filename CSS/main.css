@@ -10,6 +10,25 @@ img{
   max-width: 50%;
   float: right;
 }
+.newGame {
+  font-size: 15px;
+}
+
+#gameOverBoxOne{
+  height: 100vh;
+  background-image: url("http://www.craveonline.com/images/stories/124405/image_assets/image_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#gameOverBoxTwo{
+  height: 100vh;
+  background-image: url("http://www.craveonline.com/images/stories/124405/image_assets/image_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
 .mainBox {
   width: 1200px;
@@ -99,12 +118,12 @@ button {
 #colorPellet {
   position: absolute;
   top: 40px;
-  left: 20px;
+  left: 0%;
 }
 
 #blackPellet {
   position: absolute;
-  right: 20px;
+  right: 0%;
   bottom: 40px;
 }
 

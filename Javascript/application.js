@@ -11,8 +11,9 @@ var playerOneKeys=["q","w","e","r"];
 var playerTwoKeys=["u","i","o","p"];
 var timeOverOne;
 var timeOverTwo;
-//var playerOneTime=500;
-//var playerTwoTime=500;
+var checkWinOne=0;
+var checkWinTwo=0;
+var waitToStart;
 
 function lightColorGenerator(){
   var color=parseInt(Math.random()*3+1);
@@ -126,7 +127,9 @@ function pOneCheckInput(value){
     movePlayerOne();
     timeOverOne=setTimeout(resetOnePellet,5000);
   } else {
+    //clearTimeout(timeOverOne);
     resetOnePellet();
+    //timeOverOne=setTimeout(resetOnePellet,5000);
   };
 }
 
@@ -139,11 +142,11 @@ function pTwoCheckInput(value) {
     resetTime($("#pTwoProgressBar"));
     movePlayerTwo();
     timeOverTwo = setTimeout(resetTwoPellet, 5000);
+    checkWinTwo = checkWinTwo+1;
   } else {
     resetTwoPellet();
   };
 }
-
 
 function pOneButtonGenerator(){
   var lightColors=["red", "blue", "green", "orange"];
@@ -181,15 +184,34 @@ function resetTime($section){
 }
 
 function gameOver(){
-  console.log("The end");
+  $(".mainBox").hide();
+  if (checkWinOne>=9){
+    $("#gameOverBoxOne").removeClass("hide");
+    $(".newGame").on("click", function restart(){
+      location.reload();
+    });
+  } else {
+    $("#gameOverBoxTwo").removeClass("hide");
+    $(".newGame").on("click", function restart(){
+      location.reload();
+    });
+  }
 }
 
 function movePlayerOne(){
   $("#colorPellet").animate({"left":"+=10%"},500);
+  checkWinOne = checkWinOne+1;
+  if (checkWinOne>=2){
+    setTimeout(gameOver,500);
+  }
 }
 
 function movePlayerTwo(){
   $("#blackPellet").animate({"right":"+=10%"},500);
+  checkWinTwo = checkWinTwo+1;
+  if (checkWinTwo>=9){
+    setTimeout(gameOver,500);
+  }
 }
 
 function countDown(){
@@ -202,21 +224,23 @@ function countDown(){
 }
 
 function gameDelay() {
-  setTimeout(start, 1000);
+  waitToStart = setTimeout(start, 1000);
 }
 
 function resetOnePellet(){
   $("#colorPellet").animate({"height":"0px","width":"0px"},500);
   setTimeout(function(){
     $("#colorPellet").stop().css({"left":"20px","height":"70px","width":"70px"});
-  }, 400)
+  }, 400);
+  checkWinOne=0;
 }
 
 function resetTwoPellet(){
   $("#blackPellet").animate({"height":"0px","width":"0px"},500);
   setTimeout(function(){
     $("#blackPellet").stop().css({"right":"20px","height":"70px","width":"70px"});
-  }, 400)
+  }, 400);
+  checkWinTwo=0;
 }
 
 function start(){
