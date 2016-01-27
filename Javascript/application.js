@@ -9,6 +9,8 @@ var $playerOne=$("#pOneDisplayBox");
 var $playerTwo=$("#pTwoDisplayBox");
 var playerOneKeys=["q","w","e","r"];
 var playerTwoKeys=["u","i","o","p"];
+var timeOverOne;
+var timeOverTwo;
 //var playerOneTime=500;
 //var playerTwoTime=500;
 
@@ -33,7 +35,7 @@ function lightColorGenerator(){
     pOneCorrectColor="purple";
     $playerOne.css({"color":"purple"});
   }*/
-};
+}
 
 function darkColorGenerator(){
   var color=parseInt(Math.random()*3+1);
@@ -56,7 +58,7 @@ function darkColorGenerator(){
     pTwoCorrectColor="purple";
     $playerTwo.css({"color":"purple"});
   }*/
-};
+}
 
 function wordGenerator($player){
   var word = parseInt(Math.random()*3+1);
@@ -74,7 +76,7 @@ function wordGenerator($player){
     //playerWord ="Purple";
   //}
   $player.text(playerWord).css({"font-size":"35px"});
-};
+}
 
 function playerOneInput(){
   $("body").on("keypress", function charInput(e){
@@ -83,7 +85,8 @@ function playerOneInput(){
       playerOneGame();
     }
   });
-};
+}
+
 function playerTwoInput(){
   $("body").on("keypress", function charInput(b){
     pTwoChoice = String.fromCharCode(b.which);
@@ -91,37 +94,8 @@ function playerTwoInput(){
       playerTwoGame();
     };
   });
-};
-/*
-function getInput(){
-  $("body").on("keypress", function charInput(e){
-    Choice = String.fromCharCode(e.which);
-    playGame(Choice);
-  });
-};
-function clickButton(clicked){
-    if (clicked=="q") {$("#Q").click();}
-    else if (clicked=="w") {$("#W").click();}
-    else if (clicked=="e") {$("#E").click();}
-    else if (clicked=="r") {$("#R").click();}
-    else if (clicked=="u") {$("#U").click();}
-    else if (clicked=="i") {$("#I").click();}
-    else if (clicked=="o") {$("#O").click();}
-    else if (clicked=="p") {$("#P").click();};
-};
-function playGame(){
-    if (playerOneKeys.indexOf(playerselect)>=0){
-      for (var x=0;x<playerOneKeys.length;x++){
-        if (playerselect==playerOneKeys[x]){
-          var $temp = $("#"+playerOneKeys[x].toUpperCase());
-          $temp.click();
-          pOneCheckInput($temp.val());
-        }
-      }
-    }
 }
-}
-*/
+
 function playerOneGame(){
     for (var x=0;x<playerOneKeys.length;x++){
       if (pOneChoice==playerOneKeys[x]){
@@ -144,28 +118,31 @@ function playerTwoGame(){
 
 function pOneCheckInput(value){
   if (value==pOneCorrectColor){
+    clearTimeout(timeOverOne);
     lightColorGenerator()
     wordGenerator($playerOne);
     pOneButtonGenerator();
     resetTime($("#pOneProgressBar"));
-    //resetSize($("#colorPellet"))
     movePlayerOne();
+    timeOverOne=setTimeout(resetOnePellet,5000);
   } else {
-    console.log("P1wrong");
+    resetOnePellet();
   };
-};
+}
 
 function pTwoCheckInput(value) {
   if (value==pTwoCorrectColor){
+    clearTimeout(timeOverTwo);
     darkColorGenerator()
     wordGenerator($playerTwo);
     pTwoButtonGenerator();
     resetTime($("#pTwoProgressBar"));
     movePlayerTwo();
+    timeOverTwo = setTimeout(resetTwoPellet, 5000);
   } else {
-    console.log("P2wrong");
+    resetTwoPellet();
   };
-};
+}
 
 
 function pOneButtonGenerator(){
@@ -179,7 +156,8 @@ function pOneButtonGenerator(){
   $("#W").css({"background":randomColor[1]}).val(randomColor[1]);
   $("#E").css({"background":randomColor[2]}).val(randomColor[2]);
   $("#R").css({"background":randomColor[3]}).val(randomColor[3]);
-};
+}
+
 function pTwoButtonGenerator(){
   var darkColors=["red", "blue", "green", "orange"];
   var randomColor=[];
@@ -191,62 +169,29 @@ function pTwoButtonGenerator(){
   $("#I").css({"background":randomColor[1]}).val(randomColor[1]);
   $("#O").css({"background":randomColor[2]}).val(randomColor[2]);
   $("#P").css({"background":randomColor[3]}).val(randomColor[3]);
-};
+}
 
 function playerProgress($element) {
-    //var progressBarWidth = percent * $element.width() / 5;
-    //var progressBarWidth = ($element.width() / 5).toString();
-  $element.find('div').animate({ height: "0%" }, 5000);
-  //$("#colorPellet").animate({"height":"-=10px","width":"-=10px"},500);
-};
+  $element.find('div').animate({ "height": "0%" }, 5000);
+}
+
 function resetTime($section){
   $section.find("div").stop().css({ "height": "100%" });
   playerProgress($section);
-};
-/*
-function resetSize($section){
-  $section.stop().css({ "height":"70px", "width":"70px"});
-  $("#colorPellet").animate({"height":"-=10px","width":"-=10px"},500);
-}*/
-/*
-function reduceTime() {
-    playerOneTime = playerOneTime -100;
-    if (playerOneTime <=-1) {
-      gameOver();
-      clearInterval(startTimer);
-    } else {
-       playerOneProgress($("#pOneStrength"));
-       //$("#pOneProgressBar").animate({ width: "70%" }, 5000);
-    }
-  }
+}
 
-function startClock() {
-    startTimer = setInterval(reduceTime, 1000);
-  };
-*/
 function gameOver(){
   console.log("The end");
 }
 
 function movePlayerOne(){
-  //var currentSpot=parseInt($("#colorPellet").attr("style").substr(6,2));
-  //var newSpot = (currentSpot+8).toString()+"%";
-  //$("#colorPellet").animate({"left":"+=10%","height":"-=20px","width":"-=20px"},500);
   $("#colorPellet").animate({"left":"+=10%"},500);
-    //if (counter>3) {
-    //$("#tailOne").animate({"right":"50px"});
-  //}
-  //reduceBlobSize($("#colorPellet"));
 }
+
 function movePlayerTwo(){
-  //var currentSpot=parseInt($("#blackPellet").attr("style").substr(7,2));
-  //var newSpot = (currentSpot+8).toString()+"%";
   $("#blackPellet").animate({"right":"+=10%"},500);
 }
-/*
-function reduceBlobSize($player){
-  $player.animate({"height":"-=5%","width":"-5%"});
-}*/
+
 function countDown(){
   $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
   $("#countdown").text("2");
@@ -254,10 +199,25 @@ function countDown(){
   $("#countdown").text("1");
   $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
   $("#countdown").text("Go!");
-};
-function setDelay() {
-  setTimeout(start, 3000);
-  };
+}
+
+function gameDelay() {
+  setTimeout(start, 1000);
+}
+
+function resetOnePellet(){
+  $("#colorPellet").animate({"height":"0px","width":"0px"},500);
+  setTimeout(function(){
+    $("#colorPellet").stop().css({"left":"20px","height":"70px","width":"70px"});
+  }, 400)
+}
+
+function resetTwoPellet(){
+  $("#blackPellet").animate({"height":"0px","width":"0px"},500);
+  setTimeout(function(){
+    $("#blackPellet").stop().css({"right":"20px","height":"70px","width":"70px"});
+  }, 400)
+}
 
 function start(){
   playerProgress($("#pOneProgressBar"));
@@ -271,6 +231,7 @@ function start(){
   playerOneInput();
   playerTwoInput();
 }
-setDelay();
+
+gameDelay();
 
 });
