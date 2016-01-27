@@ -10,6 +10,21 @@ img{
   max-width: 50%;
   float: right;
 }
+
+button {
+    background: #428BCA;
+    color: #fff;
+    font-family: Sans-serif;
+    font-size: 20px;
+    height: 100px;
+    width: 100px;
+    line-height: 60px;
+    margin: 5px 5px;
+    text-align: center;
+    border: 0;
+    border-radius: 50px;
+}
+
 .newGame {
   font-size: 15px;
 }
@@ -41,7 +56,7 @@ img{
 
 #topFrame {
   background: rgba(255, 255, 255, 0.60);
-  height: 300px;
+  height: 150px;
   padding: 0px;
 
 }
@@ -58,54 +73,27 @@ img{
 
 #pOneStrength, #pTwoStrength {
   background: rgba(0, 106, 255, 0.53);
-  height: 200px;
+  height: 150px;
   width: 585px;
 }
 
 #pOneObjective, #pTwoObjective {
   background: rgba(0, 106, 255, 0.53);
-  height: 200px;
+  height: 150px;
   width: 585px;
 }
 
 #pOneBlobs, #pTwoBlobs {
   background: rgba(0, 106, 255, 0.53);
-  height: 200px;
+  height: 150px;
   width: 585px;
 }
 
-#colorPellet, #blackPellet {
-  height: 70px;
-  width: 70px;
-  border-radius: 35px;
-  background: blue;
-}
-/*#tailOne {
-  position: relative;
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  background: red;
-}*/
 #countdown{
   position: fixed;
   top: 50%;
   left: 48%;
   font-size: 100px;
-}
-
-button {
-    background: #428BCA;
-    color: #fff;
-    font-family: Sans-serif;
-    font-size: 20px;
-    height: 100px;
-    width: 100px;
-    line-height: 60px;
-    margin: 5px 5px;
-    text-align: center;
-    border: 0;
-    border-radius: 50px;
 }
 
 #pOneDisplayBox, #pTwoDisplayBox {
@@ -118,14 +106,22 @@ button {
 
 #colorPellet {
   position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: #DB2423;
   top: 40px;
-  left: 0%;
+  left: 15%;
 }
 
 #blackPellet {
   position: absolute;
-  right: 0%;
-  bottom: 40px;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: black;
+  right: 15%;
+  bottom: 20px;
 }
 
 #pOneProgressBar, #pTwoProgressBar {
@@ -138,11 +134,19 @@ button {
   /*box-shadow: inset 0px 4px 6px #ADABAB;*/
 }
 
-#pOneProgressBar div, #pTwoProgressBar div {
+#pOneProgressBar div {
   height: 100%;
   line-height: 50px;
   width: 100px;
 }
+
+#pTwoProgressBar div {
+  height: 100%;
+  line-height: 50px;
+  width: 100px;
+  background-color: black;
+}
+
 
 .progress-bar {
   -webkit-transition: none !important;

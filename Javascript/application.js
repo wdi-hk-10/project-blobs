@@ -241,7 +241,7 @@ function resetTime($section){
 
 function gameOver(){
   $(".mainBox").hide();
-  if (checkWinOne>=9){
+  if (checkWinOne>=15){
     $("#gameOverBoxOne").removeClass("hide");
     $(".newGame").on("click", function restart(){
       location.reload();
@@ -255,17 +255,17 @@ function gameOver(){
 }
 
 function movePlayerOne(){
-  $("#colorPellet").animate({"left":"+=10%"},500);
+  $("#colorPellet").animate({"left":"+=5%"},500);
   checkWinOne = checkWinOne+1;
-  if (checkWinOne>=5){
+  if (checkWinOne>=15){
     setTimeout(gameOver,500);
   }
 }
 
 function movePlayerTwo(){
-  $("#blackPellet").animate({"right":"+=10%"},500);
+  $("#blackPellet").animate({"right":"+=5%"},500);
   checkWinTwo = checkWinTwo+1;
-  if (checkWinTwo>=9){
+  if (checkWinTwo>=15){
     setTimeout(gameOver,500);
   }
 }
@@ -274,7 +274,7 @@ function resetOnePellet(){
   //$("#colorPellet").animate({"height":"0px","width":"0px"},500);
   $("#colorPellet").addClass("animated zoomOut");
   setTimeout(function(){
-    $("#colorPellet").removeClass("animated zoomOut").css({"left":"20px","height":"70px","width":"70px"});
+    $("#colorPellet").removeClass("animated zoomOut").css({"left":"15%","height":"40px","width":"40px"});
     //$("#colorPellet").stop().css({"left":"20px","height":"70px","width":"70px"});
   }, 500);
   checkWinOne=0;
@@ -282,9 +282,9 @@ function resetOnePellet(){
 
 function resetTwoPellet(){
   //$("#blackPellet").animate({"height":"0px","width":"0px"},500);
-  $("#darkPellet").addClass("animated zoomOut");
+  $("#blackPellet").addClass("animated zoomOut");
   setTimeout(function(){
-    $("#darkPellet").removeClass("animated zoomOut").css({"right":"20px","height":"70px","width":"70px"});
+    $("#blackPellet").removeClass("animated zoomOut").css({"right":"15%","height":"40px","width":"40px"});
     //$("#blackPellet").stop().css({"right":"20px","height":"70px","width":"70px"});
   }, 500);
   checkWinTwo=0;
