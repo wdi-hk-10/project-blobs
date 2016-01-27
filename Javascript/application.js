@@ -215,18 +215,28 @@ function movePlayerTwo(){
 }
 
 function countDown(){
-  $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
-  $("#countdown").text("2");
-  $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
-  $("#countdown").text("1");
-  $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
-  $("#countdown").text("Go!");
+  setTimeout(function(){
+    $("#three").removeClass("hide");
+  },500);
+  setTimeout(function(){
+    $("#three").addClass("hide");
+    $("#two").removeClass("hide");
+  },2000);
+  setTimeout(function(){
+    $("#two").addClass("hide");
+    $("#one").removeClass("hide");
+  },4000);
+    setTimeout(function(){
+    $("#one").addClass("hide");
+  },6000);
+  setTimeout(start, 6000);
 }
-
+/*
 function gameDelay() {
-  waitToStart = setTimeout(start, 1000);
+  countDown();
+  waitToStart = setTimeout(start, 6000);
 }
-
+*/
 function resetOnePellet(){
   $("#colorPellet").animate({"height":"0px","width":"0px"},500);
   setTimeout(function(){
@@ -256,6 +266,15 @@ function start(){
   playerTwoInput();
 }
 
-gameDelay();
+$("#startGame").on("click", function instructions(){
+  $("#startScreen").addClass("hide");
+  $("#instructions").removeClass("hide");
+});
+
+$("#next").on("click", function instructions(){
+  $("#instructions").addClass("hide");
+  $("section").removeClass("hide");
+  countDown();
+});
 
 });
