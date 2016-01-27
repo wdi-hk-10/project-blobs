@@ -148,6 +148,7 @@ function pOneCheckInput(value){
     wordGenerator($playerOne);
     pOneButtonGenerator();
     resetTime($("#pOneProgressBar"));
+    //resetSize($("#colorPellet"))
     movePlayerOne();
   } else {
     console.log("P1wrong");
@@ -196,11 +197,17 @@ function playerProgress($element) {
     //var progressBarWidth = percent * $element.width() / 5;
     //var progressBarWidth = ($element.width() / 5).toString();
   $element.find('div').animate({ height: "0%" }, 5000);
+  //$("#colorPellet").animate({"height":"-=10px","width":"-=10px"},500);
 };
 function resetTime($section){
   $section.find("div").stop().css({ "height": "100%" });
   playerProgress($section);
 };
+/*
+function resetSize($section){
+  $section.stop().css({ "height":"70px", "width":"70px"});
+  $("#colorPellet").animate({"height":"-=10px","width":"-=10px"},500);
+}*/
 /*
 function reduceTime() {
     playerOneTime = playerOneTime -100;
@@ -222,15 +229,35 @@ function gameOver(){
 }
 
 function movePlayerOne(){
-  var currentSpot=parseInt($("#colorPellet").attr("style").substr(6,2));
-  var newSpot = (currentSpot+8).toString()+"%";
-  $("#colorPellet").animate({"left":newSpot},500);
+  //var currentSpot=parseInt($("#colorPellet").attr("style").substr(6,2));
+  //var newSpot = (currentSpot+8).toString()+"%";
+  //$("#colorPellet").animate({"left":"+=10%","height":"-=20px","width":"-=20px"},500);
+  $("#colorPellet").animate({"left":"+=10%"},500);
+    //if (counter>3) {
+    //$("#tailOne").animate({"right":"50px"});
+  //}
+  //reduceBlobSize($("#colorPellet"));
 }
 function movePlayerTwo(){
-  var currentSpot=parseInt($("#blackPellet").attr("style").substr(7,2));
-  var newSpot = (currentSpot+8).toString()+"%";
-  $("#blackPellet").animate({"right":newSpot},500);
+  //var currentSpot=parseInt($("#blackPellet").attr("style").substr(7,2));
+  //var newSpot = (currentSpot+8).toString()+"%";
+  $("#blackPellet").animate({"right":"+=10%"},500);
 }
+/*
+function reduceBlobSize($player){
+  $player.animate({"height":"-=5%","width":"-5%"});
+}*/
+function countDown(){
+  $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
+  $("#countdown").text("2");
+  $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
+  $("#countdown").text("1");
+  $("#countdown").animate({"font-size":"150px"},2000).animate({"font-size":"100px"},1000).stop();
+  $("#countdown").text("Go!");
+};
+function setDelay() {
+  setTimeout(start, 3000);
+  };
 
 function start(){
   playerProgress($("#pOneProgressBar"));
@@ -244,7 +271,6 @@ function start(){
   playerOneInput();
   playerTwoInput();
 }
-
-start();
+setDelay();
 
 });
