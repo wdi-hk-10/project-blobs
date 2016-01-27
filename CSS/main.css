@@ -1,5 +1,5 @@
 body{
-  /*background-image: url("http://www.co-optimus.com/images/upload/image/2011/deBlob2-battle.jpg");*/
+  background-image: url("http://www.co-optimus.com/images/upload/image/2011/deBlob2-battle.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -43,6 +43,7 @@ img{
   background: rgba(255, 255, 255, 0.60);
   height: 300px;
   padding: 0px;
+
 }
 
 #leftFrame {

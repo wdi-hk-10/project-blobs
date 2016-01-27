@@ -13,7 +13,6 @@ var timeOverOne;
 var timeOverTwo;
 var checkWinOne=0;
 var checkWinTwo=0;
-var waitToStart;
 
 function lightColorGenerator(){
   var color=parseInt(Math.random()*3+1);
@@ -98,23 +97,23 @@ function playerTwoInput(){
 }
 
 function playerOneGame(){
-    for (var x=0;x<playerOneKeys.length;x++){
-      if (pOneChoice==playerOneKeys[x]){
-        var $temp = $("#"+playerOneKeys[x].toUpperCase());
-        $temp.click();
-        pOneCheckInput($temp.val());
-      }
+  for (var x=0;x<playerOneKeys.length;x++){
+    if (pOneChoice==playerOneKeys[x]){
+      var $temp = $("#"+playerOneKeys[x].toUpperCase());
+      $temp.click();
+      pOneCheckInput($temp.val());
     }
+  }
 }
 
 function playerTwoGame(){
-    for (var y=0;y<playerTwoKeys.length;y++){
-      if (pTwoChoice==playerTwoKeys[y]){
-        var $temp = $("#"+playerTwoKeys[y].toUpperCase());
-        $temp.click();
-        pTwoCheckInput($temp.val());
-      }
+  for (var y=0;y<playerTwoKeys.length;y++){
+    if (pTwoChoice==playerTwoKeys[y]){
+      var $temp = $("#"+playerTwoKeys[y].toUpperCase());
+      $temp.click();
+      pTwoCheckInput($temp.val());
     }
+  }
   }
 
 function pOneCheckInput(value){
@@ -125,11 +124,13 @@ function pOneCheckInput(value){
     pOneButtonGenerator();
     resetTime($("#pOneProgressBar"));
     movePlayerOne();
-    timeOverOne=setTimeout(resetOnePellet,5000);
+    timeOverOne=setTimeout(function(){
+      resetOnePellet();
+      resetTime($("#pOneProgressBar"));
+      },5000);
   } else {
-    //clearTimeout(timeOverOne);
     resetOnePellet();
-    //timeOverOne=setTimeout(resetOnePellet,5000);
+    resetTime($("#pOneProgressBar"));
   };
 }
 
@@ -141,10 +142,13 @@ function pTwoCheckInput(value) {
     pTwoButtonGenerator();
     resetTime($("#pTwoProgressBar"));
     movePlayerTwo();
-    timeOverTwo = setTimeout(resetTwoPellet, 5000);
-    checkWinTwo = checkWinTwo+1;
+    timeOverTwo=setTimeout(function(){
+      resetTwoPellet();
+      resetTime($("#pTwoProgressBar"));
+      },5000);
   } else {
     resetTwoPellet();
+    resetTime($("#pTwoProgressBar"));
   };
 }
 
@@ -201,7 +205,7 @@ function gameOver(){
 function movePlayerOne(){
   $("#colorPellet").animate({"left":"+=10%"},500);
   checkWinOne = checkWinOne+1;
-  if (checkWinOne>=2){
+  if (checkWinOne>=5){
     setTimeout(gameOver,500);
   }
 }
@@ -231,12 +235,7 @@ function countDown(){
   },6000);
   setTimeout(start, 6000);
 }
-/*
-function gameDelay() {
-  countDown();
-  waitToStart = setTimeout(start, 6000);
-}
-*/
+
 function resetOnePellet(){
   $("#colorPellet").animate({"height":"0px","width":"0px"},500);
   setTimeout(function(){
