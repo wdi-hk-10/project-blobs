@@ -78,6 +78,32 @@ function wordGenerator($player){
   $player.text(playerWord).css({"font-size":"35px"});
 }
 
+function pOneButtonGenerator(){
+  var lightColors=["red", "blue", "green", "orange"];
+  var randomColor=[];
+  for (var x=0;x<4;x++){
+    var randomizer = lightColors.splice((Math.floor(Math.random() * lightColors.length)),1);
+    randomColor.push(randomizer);
+  };
+  $("#Q").css({"background":randomColor[0]}).val(randomColor[0]);
+  $("#W").css({"background":randomColor[1]}).val(randomColor[1]);
+  $("#E").css({"background":randomColor[2]}).val(randomColor[2]);
+  $("#R").css({"background":randomColor[3]}).val(randomColor[3]);
+}
+
+function pTwoButtonGenerator(){
+  var darkColors=["red", "blue", "green", "orange"];
+  var randomColor=[];
+  for (var x=0;x<4;x++){
+    var randomizer = darkColors.splice((Math.floor(Math.random() * darkColors.length)),1);
+    randomColor.push(randomizer);
+  };
+  $("#U").css({"background":randomColor[0]}).val(randomColor[0]);
+  $("#I").css({"background":randomColor[1]}).val(randomColor[1]);
+  $("#O").css({"background":randomColor[2]}).val(randomColor[2]);
+  $("#P").css({"background":randomColor[3]}).val(randomColor[3]);
+}
+
 function playerOneInput(){
   $("body").on("keypress", function charInput(e){
     pOneChoice = String.fromCharCode(e.which);
@@ -114,9 +140,50 @@ function playerTwoGame(){
       pTwoCheckInput($temp.val());
     }
   }
-  }
+}
 
 function pOneCheckInput(value){
+
+  if (value==pOneCorrectColor){
+    movePlayerOne();
+    //timeOverOne=setTimeout(function(){
+      //resetOnePellet();
+      //resetTime($("#pOneProgressBar"));
+      //},5000);
+  } else {
+    $("#pOneDisplayBox").addClass("animated shake");
+    $("#pOneDisplayBox").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function rest(){;
+    resetOnePellet();
+    $("#pOneDisplayBox").removeClass("animated shake");})
+  };
+    clearTimeout(timeOverOne);
+    lightColorGenerator()
+    wordGenerator($playerOne);
+    pOneButtonGenerator();
+    resetTime($("#pOneProgressBar"));
+    resetOneBar();
+}
+
+function pTwoCheckInput(value){
+
+  if (value==pTwoCorrectColor){
+    movePlayerTwo();
+  } else {
+    $("#pTwoDisplayBox").addClass("animated shake");
+    $("#pTwoDisplayBox").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function rest(){;
+    resetTwoPellet();
+    $("#pTwoDisplayBox").removeClass("animated shake");})
+  };
+    clearTimeout(timeOverTwo);
+    darkColorGenerator()
+    wordGenerator($playerTwo);
+    pTwoButtonGenerator();
+    resetTime($("#pTwoProgressBar"));
+    resetTwoBar();
+}
+/*
+function pOneCheckInput(value){
+
   if (value==pOneCorrectColor){
     clearTimeout(timeOverOne);
     lightColorGenerator()
@@ -129,8 +196,14 @@ function pOneCheckInput(value){
       resetTime($("#pOneProgressBar"));
       },5000);
   } else {
+    $("#pOneDisplayBox").addClass("animated shake");
+    $("#pOneDisplayBox").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function rest(){;
+    lightColorGenerator()
+    wordGenerator($playerOne);
+    pOneButtonGenerator();
     resetOnePellet();
     resetTime($("#pOneProgressBar"));
+    $("#pOneDisplayBox").removeClass("animated shake");})
   };
 }
 
@@ -151,40 +224,19 @@ function pTwoCheckInput(value) {
     resetTime($("#pTwoProgressBar"));
   };
 }
-
-function pOneButtonGenerator(){
-  var lightColors=["red", "blue", "green", "orange"];
-  var randomColor=[];
-  for (var x=0;x<4;x++){
-    var randomizer = lightColors.splice((Math.floor(Math.random() * lightColors.length)),1);
-    randomColor.push(randomizer);
-  };
-  $("#Q").css({"background":randomColor[0]}).val(randomColor[0]);
-  $("#W").css({"background":randomColor[1]}).val(randomColor[1]);
-  $("#E").css({"background":randomColor[2]}).val(randomColor[2]);
-  $("#R").css({"background":randomColor[3]}).val(randomColor[3]);
+*/
+function resetOneBar() {
+  $("#pOneProgressBar").find('div').animate({ "height": "0%" }, 5000);
+  timeOverOne=setTimeout(pOneCheckInput,5000);
 }
 
-function pTwoButtonGenerator(){
-  var darkColors=["red", "blue", "green", "orange"];
-  var randomColor=[];
-  for (var x=0;x<4;x++){
-    var randomizer = darkColors.splice((Math.floor(Math.random() * darkColors.length)),1);
-    randomColor.push(randomizer);
-  };
-  $("#U").css({"background":randomColor[0]}).val(randomColor[0]);
-  $("#I").css({"background":randomColor[1]}).val(randomColor[1]);
-  $("#O").css({"background":randomColor[2]}).val(randomColor[2]);
-  $("#P").css({"background":randomColor[3]}).val(randomColor[3]);
-}
-
-function playerProgress($element) {
-  $element.find('div').animate({ "height": "0%" }, 5000);
+function resetTwoBar() {
+  $("#pTwoProgressBar").find('div').animate({ "height": "0%" }, 5000);
+  timeOverTwo=setTimeout(pTwoCheckInput,5000);
 }
 
 function resetTime($section){
   $section.find("div").stop().css({ "height": "100%" });
-  playerProgress($section);
 }
 
 function gameOver(){
@@ -218,6 +270,26 @@ function movePlayerTwo(){
   }
 }
 
+function resetOnePellet(){
+  //$("#colorPellet").animate({"height":"0px","width":"0px"},500);
+  $("#colorPellet").addClass("animated zoomOut");
+  setTimeout(function(){
+    $("#colorPellet").removeClass("animated zoomOut").css({"left":"20px","height":"70px","width":"70px"});
+    //$("#colorPellet").stop().css({"left":"20px","height":"70px","width":"70px"});
+  }, 500);
+  checkWinOne=0;
+}
+
+function resetTwoPellet(){
+  //$("#blackPellet").animate({"height":"0px","width":"0px"},500);
+  $("#darkPellet").addClass("animated zoomOut");
+  setTimeout(function(){
+    $("#darkPellet").removeClass("animated zoomOut").css({"right":"20px","height":"70px","width":"70px"});
+    //$("#blackPellet").stop().css({"right":"20px","height":"70px","width":"70px"});
+  }, 500);
+  checkWinTwo=0;
+}
+
 function countDown(){
   setTimeout(function(){
     $("#three").removeClass("hide");
@@ -236,25 +308,9 @@ function countDown(){
   setTimeout(start, 6000);
 }
 
-function resetOnePellet(){
-  $("#colorPellet").animate({"height":"0px","width":"0px"},500);
-  setTimeout(function(){
-    $("#colorPellet").stop().css({"left":"20px","height":"70px","width":"70px"});
-  }, 400);
-  checkWinOne=0;
-}
-
-function resetTwoPellet(){
-  $("#blackPellet").animate({"height":"0px","width":"0px"},500);
-  setTimeout(function(){
-    $("#blackPellet").stop().css({"right":"20px","height":"70px","width":"70px"});
-  }, 400);
-  checkWinTwo=0;
-}
-
 function start(){
-  playerProgress($("#pOneProgressBar"));
-  playerProgress($("#pTwoProgressBar"));
+  resetOneBar();
+  resetTwoBar();
   lightColorGenerator();
   darkColorGenerator();
   wordGenerator($playerOne);
