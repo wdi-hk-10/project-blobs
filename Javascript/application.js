@@ -178,7 +178,7 @@ function resetTime($section){
 
 function gameOver(){
   $(".mainBox").hide();
-  if (checkWinOne>=15){
+  if (checkWinOne>=1){
     $("#gameOverBoxOne").removeClass("hide");
     $(".newGame").on("click", function restart(){
       location.reload();
@@ -194,8 +194,8 @@ function gameOver(){
 function movePlayerOne(){
   $("#colorPellet").animate({"left":"+=5%"},500);
   checkWinOne = checkWinOne+1;
-  if (checkWinOne>=15){
-    setTimeout(gameOver,500);
+  if (checkWinOne>=1){
+    setTimeout(gameOver,700);
   }
 }
 
@@ -203,7 +203,7 @@ function movePlayerTwo(){
   $("#blackPellet").animate({"right":"+=5%"},500);
   checkWinTwo = checkWinTwo+1;
   if (checkWinTwo>=15){
-    setTimeout(gameOver,500);
+    setTimeout(gameOver,700);
   }
 }
 

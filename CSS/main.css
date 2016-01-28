@@ -94,7 +94,7 @@ button {
 
 #gameOverBoxOne{
   height: 100vh;
-  background-image: url("http://www.craveonline.com/images/stories/124405/image_assets/image_1.jpg");
+  background-image: url("../Images/Game Over Player 1.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -102,7 +102,7 @@ button {
 
 #gameOverBoxTwo{
   height: 100vh;
-  background-image: url("http://www.craveonline.com/images/stories/124405/image_assets/image_1.jpg");
+  background-image: url("../Images/Game Over Player 2.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -212,4 +212,11 @@ button {
 .progress-bar {
   -webkit-transition: none !important;
   transition: none !important;
+}
+
+.newGame {
+position:absolute;
+top: 40%;
+left:50%;
+background-color: #ff3333;
 }
