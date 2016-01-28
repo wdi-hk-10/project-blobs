@@ -1,4 +1,4 @@
-body{
+body {
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -6,26 +6,26 @@ body{
   color: white;
 }
 
-img{
+img {
   max-height: 100%;
   max-width: 50%;
   float: right;
 }
 
 button {
-    background: #428BCA;
-    font-size: 20px;
-    height: 100px;
-    width: 100px;
-    line-height: 60px;
-    margin: 5px 5px;
-    text-align: center;
-    border: 1px;
-    border-radius: 50px;
+  background: #428BCA;
+  font-size: 20px;
+  height: 100px;
+  width: 100px;
+  line-height: 60px;
+  margin: 5px 5px;
+  text-align: center;
+  border: 1px;
+  border-radius: 50px;
 }
 
 #pOneBlobs button, #pTwoBlobs button {
-    font-size: 35px;
+  font-size: 35px;
 }
 
 #startScreen {
@@ -35,13 +35,16 @@ button {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 #startScreen div {
   margin-top: 5%;
   margin-left: 65%
 }
+
 #players{
   background-color: #ffa31a;
 }
+
 #instructions div {
   margin-top: 2%;
   margin-left: 83%
@@ -51,19 +54,20 @@ button {
   margin-top: 3%;
   margin-left: 25%
 }
-#next{
-  background-color: #c5ffb3;
-}
 
-#menuOne, #menuTwo{
+#next {
   background-color: #df80ff;
 }
 
-#instructionButton{
+#menuOne, #menuTwo {
+  background-color: #df80ff;
+}
+
+#instructionButton {
   background-color: #ff8080;
 }
 
-#startGame{
+#startGame {
   background-color: #66c2ff;
 }
 
@@ -91,20 +95,13 @@ button {
   height: 100vh;
 }
 
-.newGame {
-  font-size: 15px;
-}
-
-#gameOverBoxOne{
-  background-image: url("../Images/Game Over Player 1.png");
+#gameOverBoxOne {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-#gameOverBoxTwo{
-  height: 100vh;
-  background-image: url("../Images/Game Over Player 2.png");
+#gameOverBoxTwo {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -159,7 +156,7 @@ button {
   width: 585px;
 }
 
-#pOneBlobs{
+#pOneBlobs {
   background: rgba(0, 106, 255, 0.60);
   height: 150px;
   width: 585px;
@@ -171,7 +168,7 @@ button {
   width: 585px;
 }
 
-#countdown{
+#countdown {
   position: absolute;
   left: 53%;
   margin-top: -170px;
@@ -238,20 +235,21 @@ button {
 }
 
 .newGame {
-position:absolute;
-top: 40%;
-left:50%;
-background-color: #ff3333;
+  font-size: 15px;
+  position:absolute;
+  top: 5%;
+  left:48%;
+  background-color: #ff3333;
 }
 
-#three{
+#three {
   color: #DB2423;
 }
 
-#two{
+#two {
   color: black;
 }
 
-#one{
+#one {
   color: orange;
 }

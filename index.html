@@ -21,6 +21,10 @@
   </head>
 
   <body>
+    <audio autoplay loop>
+      <source src="./Audio/BackgroundAudio.mp3">
+    </audio>
+
     <div id="gameOverBoxOne" class="hide">
       <button class="newGame">Play Again</button>
     </div>
@@ -36,16 +40,19 @@
         <button id="startGame" class="hide">Start</button>
       </div>
     </div>
+
     <div id="instructions" class="row hide">
       <div>
         <button id="menuOne">Main Menu</button>
       </div>
     </div>
+
     <div id="playerSlides1" class="row hide">
       <div>
         <button id="next">Player 2</button>
       </div>
     </div>
+
     <div id="playerSlides2" class="row hide">
       <div>
         <button id="menuTwo">Main Menu</button>
@@ -77,7 +84,7 @@
             <div class="row" id="pOneObjective">
               <h3>Color Needed</h3>
               <div id="pOneDisplayBox">
-                <h3 id="test"></h3>
+                <h3></h3>
               </div>
             </div>
             <div class="row" id="pOneBlobs">
@@ -111,9 +118,6 @@
         </div>
       </section>
     </div>
-
-
-
 
   </body>
 </html>

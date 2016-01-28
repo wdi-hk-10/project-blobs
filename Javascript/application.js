@@ -14,7 +14,9 @@ var timeOverTwo;
 var checkWinOne=0;
 var checkWinTwo=0;
 var wrong = new buzz.sound("./Audio/error.mp3");
+var correct = new buzz.sound("./Audio/correct.mp3");
 
+//RANDOMLY ASSIGN ONE OF FOUR COLORS TO THE WORD ON DISPLAY
 function lightColorGenerator(){
   var color=parseInt(Math.random()*3+1);
   if (color==1){
@@ -49,6 +51,7 @@ function darkColorGenerator(){
   }
 }
 
+//DISPLAY ONE OF FOUR RANDOM WORDS
 function wordGenerator($player){
   var word = parseInt(Math.random()*3+1);
   if (word==1){
@@ -63,6 +66,7 @@ function wordGenerator($player){
   $player.text(playerWord).css({"font-size":"35px"});
 }
 
+//RANDOMLY ASSIGN UNIQUE COLORS TO THE INPUT BUTTONS
 function pOneButtonGenerator(){
   var lightColors=["#ff3333", "#66c2ff", "#00cc00", "#ffa31a"];
   var randomColor=[];
@@ -89,6 +93,7 @@ function pTwoButtonGenerator(){
   $("#P").css({"background":randomColor[3]}).val(randomColor[3]);
 }
 
+//EVENT LISTENER TO CHECK FOR BUTTON PRESS OF THE 4 VALID KEYS
 function playerOneInput(){
   $("body").on("keypress", function charInput(e){
     pOneChoice = String.fromCharCode(e.which);
@@ -107,11 +112,11 @@ function playerTwoInput(){
   });
 }
 
+//COMPARE THE BUTTON PRESSED TO THE VALID KEYS AND IF FOUND, CHECK IF CORRECT ANSWER
 function playerOneGame(){
   for (var x=0;x<playerOneKeys.length;x++){
     if (pOneChoice==playerOneKeys[x]){
       var $temp = $("#"+playerOneKeys[x].toUpperCase());
-      $temp.click();
       pOneCheckInput($temp.val());
     }
   }
@@ -121,15 +126,15 @@ function playerTwoGame(){
   for (var y=0;y<playerTwoKeys.length;y++){
     if (pTwoChoice==playerTwoKeys[y]){
       var $temp = $("#"+playerTwoKeys[y].toUpperCase());
-      $temp.click();
       pTwoCheckInput($temp.val());
     }
   }
 }
 
+//ACTIONS TO TAKE IF ANSWER IS CORRECT OR INCORRECT
 function pOneCheckInput(value){
-
   if (value==pOneCorrectColor){
+    correct.play();
     movePlayerOne();
   } else {
     $("#pOneDisplayBox").addClass("animated shake");
@@ -147,8 +152,8 @@ function pOneCheckInput(value){
 }
 
 function pTwoCheckInput(value){
-
   if (value==pTwoCorrectColor){
+    correct.play();
     movePlayerTwo();
   } else {
     $("#pTwoDisplayBox").addClass("animated shake");
@@ -165,6 +170,7 @@ function pTwoCheckInput(value){
     resetTwoBar();
 }
 
+//RESET TIMER AND START ANIMATION
 function resetOneBar() {
   $("#pOneProgressBar").find('div').animate({"height":"0%"}, 5000);
   timeOverOne=setTimeout(pOneCheckInput,5000);
@@ -175,25 +181,12 @@ function resetTwoBar() {
   timeOverTwo=setTimeout(pTwoCheckInput,5000);
 }
 
+//RESET PROGRESS BAR TO FULL STATE
 function resetTime($section){
   $section.find("div").stop().css({ "height": "100%" });
 }
 
-function gameOver(){
-  $(".mainBox").hide();
-  if (checkWinOne>=15){
-    $("#gameOverBoxOne").removeClass("hide");
-    $(".newGame").on("click", function restart(){
-      location.reload();
-    });
-  } else {
-    $("#gameOverBoxTwo").removeClass("hide");
-    $(".newGame").on("click", function restart(){
-      location.reload();
-    });
-  }
-}
-
+//MOVE PELLET AND CHECK IF PLAYER HAS REACHED DETSINATION
 function movePlayerOne(){
   $("#colorPellet").animate({"left":"+=5%"},500);
   checkWinOne = checkWinOne+1;
@@ -210,6 +203,7 @@ function movePlayerTwo(){
   }
 }
 
+//RESET PELLET TO ORIGINAL STATE IF INCORRECT ANSWER IS RECEIVED OR TIME RUNS OUT
 function resetOnePellet(){
   $("#colorPellet").addClass("animated zoomOut");
   setTimeout(function(){
@@ -226,6 +220,26 @@ function resetTwoPellet(){
   checkWinTwo=0;
 }
 
+//ACTIONS TO TAKE WHEN EITHER PLAYER HAS WON
+function gameOver(){
+  $(".mainBox").hide();
+  wrong.mute();
+  if (checkWinOne>=15){
+    $("body").css({"background-image": "url(\"./Images/Game Over Player 1.png\")"});
+    $("#gameOverBoxOne").removeClass("hide");
+    $(".newGame").on("click", function restart(){
+      location.reload();
+    });
+  } else {
+    $("body").css({"background-image": "url(\"./Images/Game Over Player 2.png\")"});
+    $("#gameOverBoxTwo").removeClass("hide");
+    $(".newGame").on("click", function restart(){
+      location.reload();
+    });
+  }
+}
+
+//ANIMATED EFFECT TO GIVE USERS A MOMENT BEFORE TIMER STARTS
 function countDown(){
   setTimeout(function(){
     $("#three").removeClass("hide").addClass("animated rotateIn");
@@ -244,6 +258,7 @@ function countDown(){
   setTimeout(start, 6000);
 }
 
+//INITIAL CALL OF FUNCTIONS FOR GAME TO BEGIN
 function start(){
   resetOneBar();
   resetTwoBar();
@@ -257,6 +272,7 @@ function start(){
   playerTwoInput();
 }
 
+//INDEX PAGE INSTRUCTIONS FOR DISPLAYING DIVS
 setTimeout(function beginPlayer(){
   $("#players").addClass("animated bounceInDown").removeClass("hide");
 },500);
