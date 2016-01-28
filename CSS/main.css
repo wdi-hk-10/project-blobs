@@ -21,16 +21,8 @@ button {
     line-height: 60px;
     margin: 5px 5px;
     text-align: center;
-    border: 0;
+    border: 1px;
     border-radius: 50px;
-}
-
-#player1 {
-  background-image: url("../Images/inkygun.png");
-}
-
-#player2 {
-  background-image: url("../Images/deblobred.png");
 }
 
 #startScreen div {
@@ -83,7 +75,7 @@ button {
 }
 
 #topFrame {
-  background: rgba(255, 255, 255, 0.60);
+  background: rgba(255, 255, 255, 0.75);
   height: 150px;
   padding: 0px;
 
@@ -119,8 +111,8 @@ button {
 
 #countdown{
   position: fixed;
-  top: 50%;
   left: 48%;
+  color: white;
   font-size: 100px;
 }
 
@@ -166,6 +158,7 @@ button {
   height: 100%;
   line-height: 50px;
   width: 100px;
+  background: #DB2423;
 }
 
 #pTwoProgressBar div {
@@ -175,10 +168,8 @@ button {
   background-color: black;
 }
 
-
 .progress-bar {
   -webkit-transition: none !important;
   transition: none !important;
   /*box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);*/
 }
-

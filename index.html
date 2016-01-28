@@ -16,6 +16,7 @@
     <link href="CSS/bootstrap.min.css" rel="stylesheet">
     <link href="CSS/main.css" rel="stylesheet">
     <link rel="stylesheet" href="Javascript/animate.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
   </head>
 
   <body>
@@ -27,12 +28,6 @@
     <div id="gameOverBoxTwo" class="hide">
       <hi>GAME OVER P2 WINS</hi>
       <button class="newGame">Play Again</button>
-    </div>
-
-    <div id="countdown">
-      <img id="three" class="hide" src="https://qph.is.quoracdn.net/main-qimg-fccaa383767e2ec75dc70b151ee5401a?convert_to_webp=true">
-      <img id="two" class="hide" src="http://www.mymissionjourney.org/wp-content/uploads/2015/07/number2.png">
-      <img id="one" class="hide" src="http://images.clipartpanda.com/hull-clipart-number-1-design-md.png">
     </div>
 
     <div class="container mainBox">
@@ -61,10 +56,16 @@
 
       <section class="hide">
         <div class="row col-xs-12" id="topFrame">
+          <div id="countdown">
+            <h1 id="three" class="hide">3</h1>
+            <h1 id="two" class="hide">2</h1>
+            <h1 id="one" class="hide">1</h1>
+            <h1 id="go" class="hide">GO!</h1>
+          </div>
           <button disabled="disabled" id="colorPellet" class="animated infinite pulse"></button>
           <button disabled="disabled" id="blackPellet" class="animated infinite pulse"></button>
-          <img id="player1" class ="pull-right" src="../Images/inkygun.png">
-          <img id="player2" class ="pull-left" src="../Images/deblobred.png">
+          <img id="player1" class ="pull-right" src="./Images/inkygun.png">
+          <img id="player2" class ="pull-left" src="./Images/deblobred.png">
         </div>
 
         <div class="row">

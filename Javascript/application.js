@@ -17,16 +17,16 @@ var checkWinTwo=0;
 function lightColorGenerator(){
   var color=parseInt(Math.random()*3+1);
   if (color==1){
-    pOneCorrectColor="blue";
-    $playerOne.css({"color":"blue"});
+    pOneCorrectColor="#66c2ff";
+    $playerOne.css({"color":"#66c2ff"});
   } else if (color==2){
-    pOneCorrectColor="red";
+    pOneCorrectColor="#ff3333";
     $playerOne.css({"color":"red"});
   } else if (color==3){
-    pOneCorrectColor="green";
+    pOneCorrectColor="#00cc00";
     $playerOne.css({"color":"green"});
   } else if (color==4){
-    pOneCorrectColor="orange";
+    pOneCorrectColor="#ffa31a";
     $playerOne.css({"color":"orange"});
   } /*else if (color==5){
     pOneCorrectColor="yellow";
@@ -40,16 +40,16 @@ function lightColorGenerator(){
 function darkColorGenerator(){
   var color=parseInt(Math.random()*3+1);
   if (color==1){
-    pTwoCorrectColor="blue";
+    pTwoCorrectColor="#0059b3";
     $playerTwo.css({"color":"blue"});
   } else if (color==2){
-    pTwoCorrectColor="red";
+    pTwoCorrectColor="#990000";
     $playerTwo.css({"color":"red"});
   } else if (color==3){
-    pTwoCorrectColor="green";
+    pTwoCorrectColor="#008000";
     $playerTwo.css({"color":"green"});
   } else if (color==4){
-    pTwoCorrectColor="orange";
+    pTwoCorrectColor="#cc5100";
     $playerTwo.css({"color":"orange"});
   } /*else if (color==5){
     pTwoCorrectColor="yellow";
@@ -79,7 +79,7 @@ function wordGenerator($player){
 }
 
 function pOneButtonGenerator(){
-  var lightColors=["red", "blue", "green", "orange"];
+  var lightColors=["#ff3333", "#66c2ff", "#00cc00", "#ffa31a"];
   var randomColor=[];
   for (var x=0;x<4;x++){
     var randomizer = lightColors.splice((Math.floor(Math.random() * lightColors.length)),1);
@@ -92,7 +92,7 @@ function pOneButtonGenerator(){
 }
 
 function pTwoButtonGenerator(){
-  var darkColors=["red", "blue", "green", "orange"];
+  var darkColors=["#990000", "#0059b3", "#008000", "#cc5100"];
   var randomColor=[];
   for (var x=0;x<4;x++){
     var randomizer = darkColors.splice((Math.floor(Math.random() * darkColors.length)),1);
@@ -146,10 +146,6 @@ function pOneCheckInput(value){
 
   if (value==pOneCorrectColor){
     movePlayerOne();
-    //timeOverOne=setTimeout(function(){
-      //resetOnePellet();
-      //resetTime($("#pOneProgressBar"));
-      //},5000);
   } else {
     $("#pOneDisplayBox").addClass("animated shake");
     $("#pOneDisplayBox").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function rest(){;
@@ -292,20 +288,25 @@ function resetTwoPellet(){
 
 function countDown(){
   setTimeout(function(){
-    $("#three").removeClass("hide");
+    $("#three").removeClass("hide").addClass("animated rotateIn");
   },500);
   setTimeout(function(){
-    $("#three").addClass("hide");
-    $("#two").removeClass("hide");
+    $("#three").removeClass("animated rotateIn").addClass("hide");
+    $("#two").removeClass("hide").addClass("animated rotateIn");
   },2000);
   setTimeout(function(){
-    $("#two").addClass("hide");
-    $("#one").removeClass("hide");
+    $("#two").removeClass("animated rotateIn").addClass("hide");
+    $("#one").removeClass("hide").addClass("animated rotateIn");
   },4000);
     setTimeout(function(){
-    $("#one").addClass("hide");
+    $("#one").removeClass("animated rotateIn").addClass("hide");
+    $("#go").removeClass("hide").addClass("animated rubberBand");
   },6000);
-  setTimeout(start, 6000);
+    setTimeout(function(){
+    $("#go").removeClass("animated rotateIn").addClass("hide");
+  },8000);
+
+  setTimeout(start, 8000);
 }
 
 function start(){
