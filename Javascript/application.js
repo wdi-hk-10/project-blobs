@@ -13,6 +13,7 @@ var timeOverOne;
 var timeOverTwo;
 var checkWinOne=0;
 var checkWinTwo=0;
+var wrong = new buzz.sound("./Audio/error.mp3");
 
 function lightColorGenerator(){
   var color=parseInt(Math.random()*3+1);
@@ -137,6 +138,7 @@ function pOneCheckInput(value){
     $("#pOneDisplayBox").removeClass("animated shake");})
   };
     clearTimeout(timeOverOne);
+    wrong.play();
     lightColorGenerator()
     wordGenerator($playerOne);
     pOneButtonGenerator();
@@ -155,6 +157,7 @@ function pTwoCheckInput(value){
     $("#pTwoDisplayBox").removeClass("animated shake");})
   };
     clearTimeout(timeOverTwo);
+    wrong.play();
     darkColorGenerator()
     wordGenerator($playerTwo);
     pTwoButtonGenerator();
@@ -163,12 +166,12 @@ function pTwoCheckInput(value){
 }
 
 function resetOneBar() {
-  $("#pOneProgressBar").find('div').animate({ "height": "0%" }, 5000);
+  $("#pOneProgressBar").find('div').animate({"height":"0%"}, 5000);
   timeOverOne=setTimeout(pOneCheckInput,5000);
 }
 
 function resetTwoBar() {
-  $("#pTwoProgressBar").find('div').animate({ "height": "0%" }, 5000);
+  $("#pTwoProgressBar").find('div').animate({"height":"0%"}, 5000);
   timeOverTwo=setTimeout(pTwoCheckInput,5000);
 }
 
@@ -266,7 +269,8 @@ setTimeout(function beginStart(){
 
 $("#startGame").on("click", function instructions(){
   $("#startScreen").addClass("hide");
-  $("section").addClass("animated slideInUp").removeClass("hide");
+  $("body").css({"background-image": "url(\"./Images/MainBackground.png\")"});
+  $("section").removeClass("hide");
   countDown();
 });
 
