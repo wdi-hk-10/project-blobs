@@ -133,28 +133,48 @@ button {
   text-align: center;
 }
 
-#pOneStrength, #pTwoStrength {
-  background: rgba(0, 106, 255, 0.53);
+#pOneStrength {
+  background: rgba(0, 106, 255, 0.60);
   height: 150px;
   width: 585px;
 }
 
-#pOneObjective, #pTwoObjective {
-  background: rgba(0, 106, 255, 0.53);
+#pTwoStrength {
+  background: rgba(51, 51, 51, 0.60);
   height: 150px;
   width: 585px;
 }
 
-#pOneBlobs, #pTwoBlobs {
-  background: rgba(0, 106, 255, 0.53);
+#pOneObjective {
+  background: rgba(0, 106, 255, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pTwoObjective {
+  background: rgba(51, 51, 51, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pOneBlobs{
+  background: rgba(0, 106, 255, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pTwoBlobs {
+  background: rgba(51, 51, 51, 0.60);
   height: 150px;
   width: 585px;
 }
 
 #countdown{
-  position: fixed;
-  left: 48%;
-  color: white;
+  position: absolute;
+  left: 53%;
+  margin-top: -170px;
+  margin-left: -100px;
+  color: black;
   font-size: 100px;
 }
 
@@ -219,4 +239,16 @@ position:absolute;
 top: 40%;
 left:50%;
 background-color: #ff3333;
+}
+
+#three{
+  color: #DB2423;
+}
+
+#two{
+  color: black;
+}
+
+#one{
+  color: orange;
 }

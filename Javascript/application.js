@@ -237,13 +237,8 @@ function countDown(){
   },4000);
     setTimeout(function(){
     $("#one").removeClass("animated rotateIn").addClass("hide");
-    $("#go").removeClass("hide").addClass("animated rubberBand");
   },6000);
-    setTimeout(function(){
-    $("#go").removeClass("animated rotateIn").addClass("hide");
-  },8000);
-
-  setTimeout(start, 8000);
+  setTimeout(start, 6000);
 }
 
 function start(){
