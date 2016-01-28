@@ -1,10 +1,10 @@
 body{
   background-image: url("../Images/MainBackground.png");
-  /*background-position: 500px 0px;*/
   background-position: center;
   background-repeat: no-repeat;
   font-family: "Arial";
 }
+
 img{
   max-height: 100%;
   max-width: 50%;
@@ -25,24 +25,67 @@ button {
     border-radius: 50px;
 }
 
+#startScreen {
+  height: 100vh;
+  background-image: url("../Images/Background.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 #startScreen div {
-  position: fixed;
-  top: 50%;
-  margin: 0 auto;
+  margin-top: 5%;
+  margin-left: 65%
 }
-
+#players{
+  background-color: #ffa31a;
+}
 #instructions div {
-  background-image: url("../Images/Instructions.png");
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
+  margin-top: 2%;
+  margin-left: 83%
 }
 
-#playerSlides div {
+#playerSlides1 div, #playerSlides2 div {
+  margin-top: 3%;
+  margin-left: 25%
+}
+#next{
+  background-color: #c5ffb3;
+}
+
+#menuOne, #menuTwo{
+  background-color: #df80ff;
+}
+
+#instructionButton{
+  background-color: #ff8080;
+}
+
+#startGame{
+  background-color: #66c2ff;
+}
+
+#instructions {
+  background-image: url("../Images/Instructions.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+#playerSlides1 {
   background-image: url("../Images/Player 1.png");
-  height: 100%;
-  width: 100%;
-  margin: 0 auto;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+#playerSlides2 {
+  background-image: url("../Images/Player 2.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .newGame {
@@ -53,7 +96,7 @@ button {
   height: 100vh;
   background-image: url("http://www.craveonline.com/images/stories/124405/image_assets/image_1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
 }
 
@@ -61,7 +104,7 @@ button {
   height: 100vh;
   background-image: url("http://www.craveonline.com/images/stories/124405/image_assets/image_1.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
 }
 
@@ -78,7 +121,6 @@ button {
   background: rgba(255, 255, 255, 0.75);
   height: 150px;
   padding: 0px;
-
 }
 
 #leftFrame {
@@ -151,7 +193,6 @@ button {
   border-radius: 50px;
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
-  /*box-shadow: inset 0px 4px 6px #ADABAB;*/
 }
 
 #pOneProgressBar div {
@@ -171,5 +212,4 @@ button {
 .progress-bar {
   -webkit-transition: none !important;
   transition: none !important;
-  /*box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);*/
 }

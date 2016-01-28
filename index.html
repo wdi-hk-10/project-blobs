@@ -30,32 +30,32 @@
       <button class="newGame">Play Again</button>
     </div>
 
-    <div class="container mainBox">
-      <div id="startScreen" class="row">
-        <div>
-          <button id="players" class="hide">Players</button>
-          <button id="instructionButton" class="hide">Instructions</button>
-          <button id="startGame" class="hide">Start</button>
-        </div>
+    <div id="startScreen" class="row">
+      <div>
+        <button id="players" class="hide">Players</button>
+        <button id="instructionButton" class="hide">Instructions</button>
+        <button id="startGame" class="hide">Start</button>
       </div>
-      <div id="instructions" class="row hide">
-        <div>
-          <button id="menuOne">Main Menu</button>
-        </div>
+    </div>
+    <div id="instructions" class="row hide">
+      <div>
+        <button id="menuOne">Main Menu</button>
       </div>
-      <div id="playerSlides1" class="row hide">
-        <div>
-          <button id="next">Player 2</button>
-        </div>
+    </div>
+    <div id="playerSlides1" class="row hide">
+      <div>
+        <button id="next">Player 2</button>
       </div>
-      <div id="playerSlides2" class="row hide">
-        <div>
-          <button id="menuTwo">Main Menu</button>
-        </div>
+    </div>
+    <div id="playerSlides2" class="row hide">
+      <div>
+        <button id="menuTwo">Main Menu</button>
       </div>
+    </div>
 
+    <div class="container mainBox">
       <section class="hide">
-        <div class="row col-xs-12" id="topFrame">
+        <div class="row col-xs-12 animated bounceInDown" id="topFrame">
           <div id="countdown">
             <h1 id="three" class="hide">3</h1>
             <h1 id="two" class="hide">2</h1>
@@ -67,7 +67,6 @@
           <img id="player1" class ="pull-right" src="./Images/inkygun.png">
           <img id="player2" class ="pull-left" src="./Images/deblobred.png">
         </div>
-
         <div class="row">
           <div id="leftFrame" class="pull-left col-xs-6">
             <div class="row" id="pOneStrength">
@@ -79,7 +78,7 @@
             </div>
             <div class="row" id="pOneObjective">
               <h3>Color Needed</h3>
-              <div id="pOneDisplayBox">
+              <div id="pOneDisplayBox" class="animated bounceInLeft">
                 <h3 id="test"></h3>
               </div>
             </div>
@@ -100,7 +99,7 @@
             </div>
             <div class="row" id="pTwoObjective">
               <h3>Color Needed</h3>
-              <div id="pTwoDisplayBox">
+              <div id="pTwoDisplayBox" class="animated bounceInRight">
                 <h3></h3>
               </div>
             </div>
