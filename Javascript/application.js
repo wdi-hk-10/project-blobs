@@ -18,49 +18,49 @@ var correct = new buzz.sound("./Audio/correct.mp3");
 
 //RANDOMLY ASSIGN ONE OF FOUR COLORS TO THE WORD ON DISPLAY
 function lightColorGenerator(){
-  var color=parseInt(Math.random()*3+1);
+  var color=Math.floor((Math.random()*4+1));
   if (color==1){
     pOneCorrectColor="#66c2ff";
-    $playerOne.css({"color":"blue"});
+    $playerOne.css({"color":"#66c2ff"});//blue
   } else if (color==2){
     pOneCorrectColor="#ff3333";
-    $playerOne.css({"color":"red"});
+    $playerOne.css({"color":"#ff3333"}); //red
   } else if (color==3){
     pOneCorrectColor="#00cc00";
-    $playerOne.css({"color":"green"});
-  } else if (color==4){
+    $playerOne.css({"color":"#00cc00"}); //green
+  } else if (color>=4){
     pOneCorrectColor="#ffa31a";
-    $playerOne.css({"color":"orange"});
+    $playerOne.css({"color":"#ffa31a"}); //orange
   }
 }
 
 function darkColorGenerator(){
-  var color=parseInt(Math.random()*3+1);
+  var color=Math.floor((Math.random()*4+1));
   if (color==1){
-    pTwoCorrectColor="#0059b3";
-    $playerTwo.css({"color":"blue"});
+    pTwoCorrectColor="#223440";
+    $playerTwo.css({"color":"#223440"}); //blue
   } else if (color==2){
-    pTwoCorrectColor="#990000";
-    $playerTwo.css({"color":"red"});
+    pTwoCorrectColor="#BF5050";
+    $playerTwo.css({"color":"#BF5050"}); //red
   } else if (color==3){
-    pTwoCorrectColor="#008000";
-    $playerTwo.css({"color":"green"});
-  } else if (color==4){
-    pTwoCorrectColor="#cc5100";
-    $playerTwo.css({"color":"orange"});
+    pTwoCorrectColor="#648741";
+    $playerTwo.css({"color":"#648741"}); //green
+  } else if (color>=4){
+    pTwoCorrectColor="#F2A74B";
+    $playerTwo.css({"color":"#F2A74B"}); //orange
   }
 }
 
 //DISPLAY ONE OF FOUR RANDOM WORDS
 function wordGenerator($player){
-  var word = parseInt(Math.random()*3+1);
+  var word = Math.floor((Math.random()*4+1));
   if (word==1){
     playerWord ="Blue";
   } else if (word==2) {
     playerWord ="Red";
   } else if (word==3) {
     playerWord ="Green";
-  } else if (word==4) {
+  } else if (word>=4) {
     playerWord ="Orange";
   }
   $player.text(playerWord).css({"font-size":"35px"});
@@ -81,7 +81,7 @@ function pOneButtonGenerator(){
 }
 
 function pTwoButtonGenerator(){
-  var darkColors=["#990000", "#0059b3", "#008000", "#cc5100"];
+  var darkColors=["#223440", "#BF5050", "#648741", "#F2A74B"];
   var randomColor=[];
   for (var x=0;x<4;x++){
     var randomizer = darkColors.splice((Math.floor(Math.random() * darkColors.length)),1);
@@ -117,6 +117,10 @@ function playerOneGame(){
   for (var x=0;x<playerOneKeys.length;x++){
     if (pOneChoice==playerOneKeys[x]){
       var $temp = $("#"+playerOneKeys[x].toUpperCase());
+      $temp.removeClass("animated bounceInLeft");
+      $temp.addClass("animated jello");
+      $temp.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function waitToFinishOne(){;
+      $temp.removeClass("animated jello");})
       pOneCheckInput($temp.val());
     }
   }
@@ -126,6 +130,10 @@ function playerTwoGame(){
   for (var y=0;y<playerTwoKeys.length;y++){
     if (pTwoChoice==playerTwoKeys[y]){
       var $temp = $("#"+playerTwoKeys[y].toUpperCase());
+      $temp.removeClass("animated bounceInRight");
+      $temp.addClass("animated jello");
+      $temp.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function waitToFinishTwo(){;
+      $temp.removeClass("animated jello");})
       pTwoCheckInput($temp.val());
     }
   }
@@ -139,11 +147,11 @@ function pOneCheckInput(value){
   } else {
     $("#pOneDisplayBox").addClass("animated shake");
     resetOnePellet();
+    wrong.play();
     $("#pOneDisplayBox").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function rest(){;
     $("#pOneDisplayBox").removeClass("animated shake");})
   };
     clearTimeout(timeOverOne);
-    wrong.play();
     lightColorGenerator()
     wordGenerator($playerOne);
     pOneButtonGenerator();
@@ -158,11 +166,11 @@ function pTwoCheckInput(value){
   } else {
     $("#pTwoDisplayBox").addClass("animated shake");
     resetTwoPellet();
+    wrong.play();
     $("#pTwoDisplayBox").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function rest(){;
     $("#pTwoDisplayBox").removeClass("animated shake");})
   };
     clearTimeout(timeOverTwo);
-    wrong.play();
     darkColorGenerator()
     wordGenerator($playerTwo);
     pTwoButtonGenerator();
@@ -285,7 +293,7 @@ setTimeout(function beginStart(){
 
 $("#startGame").on("click", function instructions(){
   $("#startScreen").addClass("hide");
-  $("body").css({"background-image": "url(\"./Images/MainBackground.png\")"});
+  $("body").css({"background-image": "url(\"./Images/MainBackground2.png\")"});
   $("section").removeClass("hide");
   countDown();
 });
