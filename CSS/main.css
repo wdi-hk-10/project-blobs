@@ -1,0 +1,255 @@
+body {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  font-family: "Arial";
+  color: white;
+}
+
+img {
+  max-height: 100%;
+  max-width: 50%;
+  float: right;
+}
+
+button {
+  background: #428BCA;
+  font-size: 20px;
+  height: 100px;
+  width: 100px;
+  line-height: 60px;
+  margin: 5px 5px;
+  text-align: center;
+  border: 1px;
+  border-radius: 50px;
+}
+
+#pOneBlobs button, #pTwoBlobs button {
+  font-size: 35px;
+}
+
+#startScreen {
+  height: 100vh;
+  background-image: url("../Images/Background.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#startScreen div {
+  margin-top: 5%;
+  margin-left: 65%
+}
+
+#players{
+  background-color: #ffa31a;
+}
+
+#instructions div {
+  margin-top: 2%;
+  margin-left: 83%
+}
+
+#playerSlides1 div, #playerSlides2 div {
+  margin-top: 3%;
+  margin-left: 25%
+}
+
+#next {
+  background-color: #df80ff;
+}
+
+#menuOne, #menuTwo {
+  background-color: #df80ff;
+}
+
+#instructionButton {
+  background-color: #ff8080;
+}
+
+#startGame {
+  background-color: #66c2ff;
+}
+
+#instructions {
+  background-image: url("../Images/Instructions.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+#playerSlides1 {
+  background-image: url("../Images/Player 1.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+#playerSlides2 {
+  background-image: url("../Images/Player 2.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+#gameOverBoxOne {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#gameOverBoxTwo {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.mainBox {
+  width: 1200px;
+  margin-top: 30px;
+}
+
+.row {
+  margin: 0;
+}
+
+#topFrame {
+  background: rgba(255, 255, 255, 0.75);
+  height: 150px;
+  padding: 0px;
+}
+
+#leftFrame {
+  padding: 0;
+  text-align: center;
+}
+
+#rightFrame {
+  padding: 0;
+  text-align: center;
+}
+
+#pOneStrength {
+  background: rgba(0, 106, 255, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pTwoStrength {
+  background: rgba(51, 51, 51, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pOneObjective {
+  background: rgba(0, 106, 255, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pTwoObjective {
+  background: rgba(51, 51, 51, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pOneBlobs {
+  background: rgba(0, 106, 255, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#pTwoBlobs {
+  background: rgba(51, 51, 51, 0.60);
+  height: 150px;
+  width: 585px;
+}
+
+#countdown {
+  position: absolute;
+  left: 53%;
+  margin-top: -170px;
+  margin-left: -100px;
+  color: black;
+  font-size: 100px;
+}
+
+#pOneDisplayBox, #pTwoDisplayBox {
+  background: white;
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+#colorPellet {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: #DB2423;
+  top: 40px;
+  left: 15%;
+}
+
+#blackPellet {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  background: black;
+  right: 15%;
+  bottom: 20px;
+}
+
+#pOneProgressBar, #pTwoProgressBar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50px;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#pOneProgressBar div {
+  height: 100%;
+  width: 100px;
+  margin: 0 auto;
+  background-color: #DB2423;
+}
+
+#pTwoProgressBar div {
+  height: 100%;
+  line-height: 50px;
+  width: 100px;
+  margin: 0 auto;
+  background-color: black;
+}
+
+.progress-bar {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+.newGame {
+  font-size: 15px;
+  position:absolute;
+  top: 5%;
+  left:48%;
+  background-color: #ff3333;
+}
+
+#three {
+  color: #DB2423;
+}
+
+#two {
+  color: black;
+}
+
+#one {
+  color: orange;
+}

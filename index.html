@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blob: A Color Matching Game">
+    <meta name="author" content="">
+
+    <script src="Javascript/jquery.min.js"></script>
+    <script src="Javascript/bootstrap.min.js"></script>
+    <script src="Javascript/application.js"></script>
+    <script src="Javascript/buzz.js"></script>
+
+
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="Javascript/animate.css">
+    <link rel="stylesheet" href="CSS/normalize.css">
+  </head>
+
+  <body>
+    <audio autoplay loop>
+      <source src="./Audio/BackgroundAudio.mp3">
+    </audio>
+
+    <div id="gameOverBoxOne" class="hide">
+      <button class="newGame">Play Again</button>
+    </div>
+
+    <div id="gameOverBoxTwo" class="hide">
+      <button class="newGame">Play Again</button>
+    </div>
+
+    <div id="startScreen" class="row">
+      <div>
+        <button id="players" class="hide">Players</button>
+        <button id="instructionButton" class="hide">Instructions</button>
+        <button id="startGame" class="hide">Start</button>
+      </div>
+    </div>
+
+    <div id="instructions" class="row hide">
+      <div>
+        <button id="menuOne">Main Menu</button>
+      </div>
+    </div>
+
+    <div id="playerSlides1" class="row hide">
+      <div>
+        <button id="next">Player 2</button>
+      </div>
+    </div>
+
+    <div id="playerSlides2" class="row hide">
+      <div>
+        <button id="menuTwo">Main Menu</button>
+      </div>
+    </div>
+
+    <div class="container mainBox">
+      <section class="hide">
+        <div class="row col-xs-12 animated bounceInDown" id="topFrame">
+          <button disabled="disabled" id="colorPellet" class="animated infinite pulse"></button>
+          <button disabled="disabled" id="blackPellet" class="animated infinite pulse"></button>
+          <img id="player1" class ="pull-right" src="./Images/inkygun.png">
+          <img id="player2" class ="pull-left" src="./Images/deblobred.png">
+          <div id="countdown">
+            <h1 id="three" class="hide">3</h1>
+            <h1 id="two" class="hide">2</h1>
+            <h1 id="one" class="hide">1</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div id="leftFrame" class="pull-left col-xs-6">
+            <div class="row" id="pOneStrength">
+              <h3>Blob Strength</h3>
+              <div id="pOneProgressBar" class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="6">
+                </div>
+              </div>
+            </div>
+            <div class="row" id="pOneObjective">
+              <h3>Color Needed</h3>
+              <div id="pOneDisplayBox">
+                <h3></h3>
+              </div>
+            </div>
+            <div class="row" id="pOneBlobs">
+              <button id="Q" class="pOneButton animated bounceInLeft">Q</button>
+              <button id="W" class="pOneButton animated bounceInLeft">W</button>
+              <button id="E" class="pOneButton animated bounceInLeft">E</button>
+              <button id="R" class="pOneButton animated bounceInLeft">R</button>
+            </div>
+          </div>
+          <div id="rightFrame" class="pull-right col-xs-6">
+            <div class="row" id="pTwoStrength">
+              <h3>Blob Strength</h3>
+              <div id="pTwoProgressBar" class="progress">
+                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="6">
+                </div>
+              </div>
+            </div>
+            <div class="row" id="pTwoObjective">
+              <h3>Color Needed</h3>
+              <div id="pTwoDisplayBox">
+                <h3></h3>
+              </div>
+            </div>
+            <div class="row" id="pTwoBlobs">
+              <button id="U" class="pTwoButton animated bounceInRight">U</button>
+              <button id="I" class="pTwoButton animated bounceInRight">I</button>
+              <button id="O" class="pTwoButton animated bounceInRight">O</button>
+              <button id="P" class="pTwoButton animated bounceInRight">P</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </body>
+</html>
